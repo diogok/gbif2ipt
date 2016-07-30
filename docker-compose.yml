@@ -1,0 +1,17 @@
+version: "2"
+services:
+  app:
+    image: diogok/lein
+    volumes:
+      - .:/project
+      - ~/.m2:/m2
+    environment:
+      GBIF_USER: "$GBIF_USER"
+      GBIF_EMAIL: "$GBIF_EMAIL"
+      GBIF_PASSWORD: "$GBIF_PASSWORD"
+  taxadata:
+    image: diogok/taxadata
+  lilipt:
+    image: diogok/lilipt
+    volumes:
+      - ./data:/var/www/html/data
